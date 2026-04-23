@@ -24,16 +24,13 @@ jobs:
           node-version: '22.x'
 
       - name: npm install
-        # This tells GitHub to run npm install INSIDE your subfolder
         run: npm install
-        working-directory: webapp-eshna-51 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          # This ensures we only upload the actual app folder
-          path: webapp-eshna-51
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
